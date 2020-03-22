@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> 
+  </head>
+  <body>
+    <h2 class="header center">Adminstrador de Criptomonedas</h2>
+    
+      <div class="row">
+        <div class="col s6">
+          <a class="waves-effect waves-light btn-large center" id='long'>Long</a>
+        </div>
+        <div class="col s6">
+          <a class="waves-effect waves-light btn-large center" id='short'>Short</a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s6">
+          <table id='tabla' class='centered' >
+            <thead>
+              <tr class="tabs">
+                <th >PAR</th>
+                <th >Media Menor</th>
+                <th >Media Mediana</th>
+                <th >Media Mayor</th>
+                <th >Porcentaje </th>
+              </tr>
+            </thead> 
+            <tbody id='tbodyporcentaje'>
+              
+            </tbody>           
+          </table>
+        </div>
+        <div class="col s6">
+          <table id='tablaResumen' class='centered'>
+            <thead>
+              <tr class="tabs">
+                <th>PAR</th>
+                <th>Media Menor</th>
+                <th>Media Mediana</th>
+                <th>Media Mayor</th>
+                <th>Porcentaje</th>
+                <th >Días</th>
+              </tr>
+            </thead> 
+            <tbody id='tbodyResumen'>
+              
+            </tbody>           
+          </table>
+        </div>
+      </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src='binanceAPI.js'></script>
+    
+  </body>
+</html>
