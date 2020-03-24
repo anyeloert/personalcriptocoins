@@ -116,20 +116,20 @@ const diasCumpliendoCondicion = (velas, mediaMenor, mediaMediana, mediaMayor) =>
     let valorMediaMenor, valorMediaMediana, valorMediaMayor, valorMediaMenorAnterior = 0
     let n = 0, diasRacha = 0
     let velasInversa = velas.reverse()
-    valorMediaMenor = mediaSimpleInversa(velasInversa, mediaMenor, n)
-    valorMediaMediana = mediaSimpleInversa(velasInversa, mediaMediana, n)
-    valorMediaMayor = mediaSimpleInversa(velasInversa, mediaMayor, n)
-    valorMediaMenorAnterior = mediaSimpleInversa(velasInversa, mediaMenor, n + 1)
+    valorMediaMenor = parseFloat(mediaSimpleInversa(velasInversa, mediaMenor, n).toFixed(8))
+    valorMediaMediana = parseFloat(mediaSimpleInversa(velasInversa, mediaMediana, n).toFixed(8))
+    valorMediaMayor = parseFloat(mediaSimpleInversa(velasInversa, mediaMayor, n).toFixed(8))
+    valorMediaMenorAnterior = parseFloat(mediaSimpleInversa(velasInversa, mediaMenor, n + 1).toFixed(8))
     if (valorMediaMayor < valorMediaMediana && valorMediaMediana < valorMediaMenor && valorMediaMenorAnterior < valorMediaMenor){
         bool = true
         diasRacha += 1
     }
     while (bool === true){
         n += 1
-        valorMediaMenor = mediaSimpleInversa(velas, mediaMenor, n)
-        valorMediaMediana = mediaSimpleInversa(velasInversa, mediaMediana, n)
-        valorMediaMayor = mediaSimpleInversa(velasInversa, mediaMayor, n)
-        valorMediaMenorAnterior = mediaSimpleInversa(velasInversa, mediaMenor, n + 1)
+        valorMediaMenor = parseFloat(mediaSimpleInversa(velas, mediaMenor, n).toFixed(8))
+        valorMediaMediana = parseFloat(mediaSimpleInversa(velasInversa, mediaMediana, n).toFixed(8))
+        valorMediaMayor = parseFloat(mediaSimpleInversa(velasInversa, mediaMayor, n).toFixed(8))
+        valorMediaMenorAnterior = parseFloat(mediaSimpleInversa(velasInversa, mediaMenor, n + 1).toFixed(8))
         if (valorMediaMayor < valorMediaMediana && valorMediaMediana < valorMediaMenor && valorMediaMenorAnterior < valorMediaMenor){
             diasRacha += 1
         }else {
@@ -189,7 +189,7 @@ mediaSimple = (array, periodo, _indice) => {
         let  ind = array[i]
         media += parseFloat(ind)
     }    
-    return media/periodo
+    return (media/periodo)
 }
 //devuelve la media en una vela especifica senalada por el indice,
 //parametros = array: array deonde se encuentra la vela de donde se calculara la media
@@ -268,7 +268,6 @@ calcularTodasCombi = (array, limiCom) => {
         porcentaje : 0
     }
     let porcentajeMayor = 0
-    let s = 0
     let porcentaje 
     for (let i = 1 ; i < limiCom - 1 ; i++){
         for (let j = i + 1 ; j < limiCom ; j++){
@@ -280,7 +279,7 @@ calcularTodasCombi = (array, limiCom) => {
                         menor : i,
                         mediana : j,
                         mayor : k,
-                        porcentaje : porcentajeMayor
+                        porcentaje : parseFloat(porcentajeMayor.toFixed(8))
                     }  
                 }
             }
